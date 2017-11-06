@@ -22,7 +22,7 @@ product = '65cb1829-9761-40f8-acc6-92d700fe2924'
 all_points_df = pd.read_csv('selected_points1.csv')
 all_points = all_points_df.values.tolist()
 
-session = Session(server_token='LNWgPcxsbiHlLPAHjNMqEN7BlAeyWURlqhdce6uQ')
+session = Session(server_token=UBER_API_KEY)
 client = UberRidesClient(session)
 
 uber_eta_df = pd.DataFrame(columns = ['datetime', 'log', 'lat', 'neigh', 'point_hash', 'eta'])

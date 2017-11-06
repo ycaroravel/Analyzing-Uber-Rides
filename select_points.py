@@ -13,6 +13,7 @@ bm = Basemap(resolution='c')
 import requests
 import time
 import datetime as dt
+from keys import UBER_API_KEY, ON_WATER_KEY
 
 # import geojson file about natal neighborhood
 natal_neigh = os.path.join('geojson', 'natal.geojson')
@@ -31,14 +32,14 @@ for neigh in geo_json_natal['features']:
 from uber_rides.session import Session
 from uber_rides.client import UberRidesClient
 
-session = Session(server_token='LNWgPcxsbiHlLPAHjNMqEN7BlAeyWURlqhdce6uQ')
+session = Session(server_token=UBER_API_KEY)
 uber_client = UberRidesClient(session)
 
 
 def on_water(lat,log):
     lat = str(lat)
     log = str(log)
-    api_url="https://api.onwater.io/api/v1/results/"+lat+","+log+"?access_token=NymZ1KAM585N4tVqwrUi"
+    api_url="https://api.onwater.io/api/v1/results/"+lat+","+log+"?access_token="+ON_WATER_KEY
     try:
         onwater = requests.get(api_url,timeout=10).json()  
     except requests.exceptions.HTTPError as err:

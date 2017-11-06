@@ -15,7 +15,7 @@ import pandas as pd
 import datetime as dt
 import geohash
 import time
-
+from keys import UBER_API_KEY
 
 from uber_rides.session import Session
 from uber_rides.client import UberRidesClient
@@ -25,7 +25,7 @@ product = '65cb1829-9761-40f8-acc6-92d700fe2924'
 #all_points_df = pd.read_csv('selected_points1.csv')
 #all_points = all_points_df.values.tolist()
 
-session = Session(server_token='LNWgPcxsbiHlLPAHjNMqEN7BlAeyWURlqhdce6uQ')
+session = Session(server_token=UBER_API_KEY)
 client = UberRidesClient(session)
 
 
